@@ -21,7 +21,8 @@ public class Role {
     @ManyToMany(mappedBy = "roles")
     private Set<User> users = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+  //  @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(fetch = FetchType.EAGER, cascade = { CascadeType.MERGE})
     @JoinTable(
         name = "role_privileges",
         joinColumns = @JoinColumn(name = "role_id"),

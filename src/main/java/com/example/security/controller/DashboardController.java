@@ -49,8 +49,8 @@ class ApiController {
     @GetMapping("/public/info")
     public java.util.Map<String, String> publicInfo() {
         return java.util.Map.of(
-            "message", "This is public information",
-            "timestamp", java.time.LocalDateTime.now().toString()
+                "message", "This is public information",
+                "timestamp", java.time.LocalDateTime.now().toString()
         );
     }
 
@@ -58,9 +58,9 @@ class ApiController {
     @PreAuthorize("hasAnyRole('USER', 'MANAGER', 'ADMIN')")
     public java.util.Map<String, Object> userData(Authentication authentication) {
         return java.util.Map.of(
-            "message", "User data",
-            "user", authentication.getName(),
-            "roles", authentication.getAuthorities()
+                "message", "User data",
+                "user", authentication.getName(),
+                "roles", authentication.getAuthorities()
         );
     }
 
@@ -68,9 +68,9 @@ class ApiController {
     @PreAuthorize("hasAnyRole('MANAGER', 'ADMIN')")
     public java.util.Map<String, Object> managerData(Authentication authentication) {
         return java.util.Map.of(
-            "message", "Manager data",
-            "user", authentication.getName(),
-            "roles", authentication.getAuthorities()
+                "message", "Manager data",
+                "user", authentication.getName(),
+                "roles", authentication.getAuthorities()
         );
     }
 
@@ -78,10 +78,10 @@ class ApiController {
     @PreAuthorize("hasRole('ADMIN')")
     public java.util.Map<String, Object> adminData(Authentication authentication) {
         return java.util.Map.of(
-            "message", "Admin data",
-            "user", authentication.getName(),
-            "roles", authentication.getAuthorities(),
-            "timestamp", java.time.LocalDateTime.now()
+                "message", "Admin data",
+                "user", authentication.getName(),
+                "roles", authentication.getAuthorities(),
+                "timestamp", java.time.LocalDateTime.now()
         );
     }
 }

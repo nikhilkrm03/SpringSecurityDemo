@@ -55,7 +55,8 @@ public class User {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    //@ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(fetch = FetchType.EAGER, cascade = { CascadeType.MERGE})
     @JoinTable(
         name = "user_roles",
         joinColumns = @JoinColumn(name = "user_id"),
